@@ -1,0 +1,1849 @@
+/* =========================================================
+   COULEURS
+========================================================= */
+
+:root {
+
+    --violet: #8b72c9;
+    --violet-fonce: #5d478f;
+    --violet-clair: #eee7ff;
+
+    --bleu: #b9dff2;
+    --bleu-clair: #e8f6fc;
+
+    --jaune: #f7df91;
+    --jaune-clair: #fff5cf;
+
+    --blanc: #fffdf9;
+
+    --texte: #3d3850;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+}
+
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    color: var(--texte);
+
+    overflow: hidden;
+
+    background: var(--blanc);
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   ÉCRAN DE VERROUILLAGE
+========================================================= */
+
+.verrouillage {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 5000;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 20%,
+            var(--jaune) 0,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 85% 80%,
+            var(--bleu) 0,
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #eee7ff,
+            #fdf9ff
+        );
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+
+}
+
+
+.verrouillage.disparu {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+.verrouillage-contenu {
+
+    width: 100%;
+
+    max-width: 600px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 10;
+
+}
+
+
+.petit-coeur {
+
+    font-size: 70px;
+
+    margin-bottom: 10px;
+
+    animation: battement 1.5s infinite;
+
+}
+
+
+.verrouillage h1 {
+
+    font-size: clamp(50px, 8vw, 90px);
+
+    line-height: 0.95;
+
+    color: var(--violet-fonce);
+
+    margin-bottom: 25px;
+
+}
+
+
+.texte-verrouillage {
+
+    max-width: 500px;
+
+    margin: 0 auto 30px;
+
+    font-size: 18px;
+
+}
+
+
+/* =========================================================
+   CHAMP MOT DE PASSE
+========================================================= */
+
+.champ-mot-de-passe {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: stretch;
+
+    max-width: 500px;
+
+    margin: auto;
+
+    background: white;
+
+    border-radius: 50px;
+
+    padding: 6px;
+
+    box-shadow:
+        0 10px 35px rgba(80, 60, 120, 0.15);
+
+}
+
+
+.champ-mot-de-passe input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    padding: 14px 20px;
+
+    font-size: 16px;
+
+    color: var(--texte);
+
+}
+
+
+.champ-mot-de-passe input::placeholder {
+
+    color: #aaa4b5;
+
+}
+
+
+.champ-mot-de-passe button {
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: var(--violet);
+
+    color: white;
+
+    padding: 0 25px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.champ-mot-de-passe button:hover {
+
+    background: var(--violet-fonce);
+
+    transform: scale(1.03);
+
+}
+
+
+/* =========================================================
+   ERREUR MOT DE PASSE
+========================================================= */
+
+.erreur-mot-de-passe {
+
+    color: #a75d70;
+
+    font-size: 14px;
+
+    margin-top: 15px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(-5px);
+
+    transition: 0.3s;
+
+}
+
+
+.erreur-mot-de-passe.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+}
+
+
+/* =========================================================
+   INDICE
+========================================================= */
+
+.indice {
+
+    margin-top: 30px;
+
+    font-size: 13px;
+
+    color: var(--violet);
+
+    opacity: 0.8;
+
+}
+
+
+/* =========================================================
+   DÉCORATIONS MOT DE PASSE
+========================================================= */
+
+.verrouillage-decor {
+
+    position: absolute;
+
+    pointer-events: none;
+
+}
+
+
+.coeur-verrouillage {
+
+    left: 8%;
+
+    bottom: 15%;
+
+    font-size: 150px;
+
+    color: var(--violet);
+
+    opacity: 0.12;
+
+    transform: rotate(-15deg);
+
+}
+
+
+.etoile-verrouillage {
+
+    right: 12%;
+
+    top: 15%;
+
+    font-size: 80px;
+
+    color: var(--violet);
+
+    opacity: 0.2;
+
+}
+
+
+/* =========================================================
+   PAGES
+========================================================= */
+
+.page {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 80px 8%;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateX(80px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        visibility 0.7s;
+
+    overflow-y: auto;
+
+}
+
+
+.page.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateX(0);
+
+}
+
+
+/* =========================================================
+   CONTENU
+========================================================= */
+
+.contenu {
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 5;
+
+}
+
+
+.contenu-large {
+
+    max-width: 900px;
+
+    text-align: left;
+
+}
+
+
+/* =========================================================
+   ACCUEIL
+========================================================= */
+
+.page-accueil {
+
+    background:
+
+        radial-gradient(
+            circle at 15% 20%,
+            var(--jaune) 0,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 85% 80%,
+            var(--bleu) 0,
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #eee7ff,
+            #fdf9ff
+        );
+
+}
+
+
+.petit-titre {
+
+    color: var(--violet-fonce);
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.page-accueil h1 {
+
+    font-size: clamp(65px, 11vw, 140px);
+
+    line-height: 0.9;
+
+    color: var(--violet-fonce);
+
+    margin-bottom: 35px;
+
+}
+
+
+.description {
+
+    font-size: 20px;
+
+    max-width: 600px;
+
+    margin: 0 auto 40px;
+
+}
+
+
+/* =========================================================
+   BOUTONS
+========================================================= */
+
+.bouton {
+
+    border: none;
+
+    padding: 16px 30px;
+
+    border-radius: 50px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    box-shadow:
+        0 8px 20px rgba(80, 60, 120, 0.15);
+
+}
+
+
+.bouton span {
+
+    margin-left: 8px;
+
+    transition: 0.3s;
+
+}
+
+
+.bouton:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 25px rgba(80, 60, 120, 0.25);
+
+}
+
+
+.bouton:hover span {
+
+    margin-left: 14px;
+
+}
+
+
+.bouton-jaune {
+
+    background: var(--jaune);
+
+    color: var(--violet-fonce);
+
+}
+
+
+.bouton-violet {
+
+    background: var(--violet);
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   HISTOIRE
+========================================================= */
+
+.page-histoire {
+
+    background: var(--blanc);
+
+}
+
+
+.numero-section {
+
+    display: block;
+
+    color: var(--violet);
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.page-histoire h2 {
+
+    font-size: clamp(40px, 6vw, 70px);
+
+    color: var(--violet-fonce);
+
+    margin-bottom: 40px;
+
+}
+
+
+.texte-histoire {
+
+    max-width: 800px;
+
+}
+
+
+.texte-histoire p {
+
+    font-size: 18px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.texte-histoire + .bouton {
+
+    margin-top: 20px;
+
+}
+
+
+/* =========================================================
+   SOUVENIRS
+========================================================= */
+
+.page-souvenir {
+
+    background: var(--jaune-clair);
+
+}
+
+
+.page-souvenir-bleu {
+
+    background: var(--bleu-clair);
+
+}
+
+
+.souvenir {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    display: grid;
+
+    grid-template-columns: 1.1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+}
+
+
+.souvenir.inverse {
+
+    grid-template-columns: 1fr 1.1fr;
+
+}
+
+
+.souvenir.inverse .photo-container {
+
+    order: 2;
+
+}
+
+
+.souvenir-texte {
+
+    text-align: left;
+
+}
+
+
+.souvenir-texte h2 {
+
+    color: var(--violet-fonce);
+
+    font-size: clamp(38px, 5vw, 65px);
+
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+
+}
+
+
+.souvenir-texte .date {
+
+    font-weight: bold;
+
+    color: var(--violet);
+
+    margin-bottom: 20px;
+
+}
+
+
+.souvenir-texte > p:not(.date) {
+
+    font-size: 17px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.photo-container {
+
+    width: 100%;
+
+    height: 60vh;
+
+    max-height: 600px;
+
+    overflow: hidden;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 50px rgba(70, 50, 100, 0.18);
+
+    transform: rotate(-2deg);
+
+    transition: 0.5s;
+
+}
+
+
+.photo-container:hover {
+
+    transform: rotate(0deg) scale(1.02);
+
+}
+
+
+.photo-container img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+
+/* =========================================================
+   GALERIE
+========================================================= */
+
+.page-galerie {
+
+    background:
+
+        radial-gradient(
+            circle at 90% 10%,
+            var(--jaune),
+            transparent 25%
+        ),
+
+        var(--violet-clair);
+
+}
+
+
+.galerie-contenu h2 {
+
+    color: var(--violet-fonce);
+
+    font-size: clamp(40px, 6vw, 70px);
+
+    margin-bottom: 15px;
+
+}
+
+
+.galerie-contenu > p {
+
+    font-size: 18px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.mini-galerie {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+    max-width: 750px;
+
+    margin: 0 auto 35px;
+
+}
+
+
+.mini-photo {
+
+    height: 260px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 30px rgba(70, 50, 100, 0.15);
+
+}
+
+
+.mini-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s;
+
+}
+
+
+.mini-photo:hover img {
+
+    transform: scale(1.08);
+
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.page-message {
+
+    color: white;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            var(--jaune),
+            transparent 22%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--violet),
+            #9e8bd0
+        );
+
+}
+
+
+.page-message .numero-section {
+
+    color: var(--jaune-clair);
+
+}
+
+
+.page-message h2 {
+
+    font-size: clamp(42px, 7vw, 80px);
+
+    line-height: 1.05;
+
+    margin-bottom: 40px;
+
+}
+
+
+.message {
+
+    max-width: 700px;
+
+    margin: auto;
+
+}
+
+
+.message p {
+
+    font-size: 19px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.page-message .bouton {
+
+    margin-top: 25px;
+
+}
+
+
+/* =========================================================
+   DERNIÈRE PAGE
+========================================================= */
+
+.page-fin {
+
+    background:
+
+        radial-gradient(
+            circle at 15% 20%,
+            var(--jaune),
+            transparent 20%
+        ),
+
+        radial-gradient(
+            circle at 85% 80%,
+            var(--bleu),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            #eee7ff,
+            #ffffff
+        );
+
+}
+
+
+.contenu-fin h2 {
+
+    font-size: clamp(45px, 8vw, 95px);
+
+    line-height: 1;
+
+    color: var(--violet-fonce);
+
+    margin-bottom: 25px;
+
+}
+
+
+.grand-coeur {
+
+    font-size: 80px;
+
+    margin: 15px 0;
+
+    animation:
+        battement 1.5s infinite;
+
+}
+
+
+.fin-texte {
+
+    color: var(--violet-fonce);
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+}
+
+
+.signature {
+
+    margin-top: 15px;
+
+    color: var(--violet);
+
+    font-style: italic;
+
+}
+
+
+/* =========================================================
+   ANIMATION COEUR
+========================================================= */
+
+@keyframes battement {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+
+/* =========================================================
+   DÉCORATIONS
+========================================================= */
+
+.decor {
+
+    position: absolute;
+
+    pointer-events: none;
+
+}
+
+
+.coeur-1 {
+
+    top: 15%;
+
+    left: 8%;
+
+    font-size: 100px;
+
+    color: var(--violet);
+
+    opacity: 0.15;
+
+    transform: rotate(-20deg);
+
+}
+
+
+.coeur-2 {
+
+    bottom: 15%;
+
+    right: 10%;
+
+    font-size: 150px;
+
+    color: var(--violet);
+
+    opacity: 0.1;
+
+    transform: rotate(20deg);
+
+}
+
+
+.etoile-1 {
+
+    top: 20%;
+
+    right: 15%;
+
+    color: var(--violet);
+
+    font-size: 50px;
+
+    opacity: 0.4;
+
+}
+
+
+.cercle-jaune {
+
+    width: 300px;
+
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: var(--jaune);
+
+    opacity: 0.35;
+
+    right: -100px;
+
+    top: -100px;
+
+}
+
+
+.etoile-2 {
+
+    top: 15%;
+
+    right: 10%;
+
+    font-size: 80px;
+
+    color: var(--jaune);
+
+    opacity: 0.5;
+
+}
+
+
+.coeur-3 {
+
+    bottom: 10%;
+
+    left: 10%;
+
+    font-size: 150px;
+
+    opacity: 0.2;
+
+}
+
+
+.confettis {
+
+    position: absolute;
+
+    top: 10%;
+
+    right: 15%;
+
+    font-size: 60px;
+
+    color: var(--violet);
+
+    opacity: 0.3;
+
+}
+
+
+/* =========================================================
+   COMPTEUR
+========================================================= */
+
+.progression {
+
+    position: fixed;
+
+    top: 25px;
+
+    right: 35px;
+
+    z-index: 1000;
+
+    color: var(--violet-fonce);
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    padding: 8px 15px;
+
+    border-radius: 50px;
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+/* =========================================================
+   BOUTON RETOUR
+========================================================= */
+
+.bouton-retour {
+
+    position: fixed;
+
+    bottom: 30px;
+
+    left: 30px;
+
+    z-index: 1000;
+
+    width: 45px;
+
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    color: var(--violet-fonce);
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.3s;
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+.bouton-retour.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+.bouton-retour:hover {
+
+    transform: translateX(-4px);
+
+}
+
+
+/* =========================================================
+   📱 VERSION TÉLÉPHONE
+========================================================= */
+
+@media (max-width: 800px) {
+
+
+    .page {
+
+        width: 100vw;
+
+        height: 100dvh;
+
+        padding: 70px 24px 75px;
+
+        overflow-y: auto;
+
+        -webkit-overflow-scrolling: touch;
+
+    }
+
+
+    /* -----------------------------------------------------
+       MOT DE PASSE
+    ----------------------------------------------------- */
+
+    .verrouillage {
+
+        padding: 25px;
+
+    }
+
+
+    .petit-coeur {
+
+        font-size: 55px;
+
+    }
+
+
+    .verrouillage h1 {
+
+        font-size: 55px;
+
+    }
+
+
+    .texte-verrouillage {
+
+        font-size: 16px;
+
+        line-height: 1.6;
+
+    }
+
+
+    .champ-mot-de-passe {
+
+        width: 100%;
+
+    }
+
+
+    .champ-mot-de-passe input {
+
+        width: 100%;
+
+        font-size: 15px;
+
+        padding: 13px 15px;
+
+    }
+
+
+    .champ-mot-de-passe button {
+
+        padding: 0 18px;
+
+        white-space: nowrap;
+
+    }
+
+
+    .indice {
+
+        font-size: 12px;
+
+    }
+
+
+    .coeur-verrouillage,
+    .etoile-verrouillage {
+
+        display: none;
+
+    }
+
+
+    /* -----------------------------------------------------
+       CONTENU
+    ----------------------------------------------------- */
+
+    .contenu {
+
+        width: 100%;
+
+        max-width: 100%;
+
+    }
+
+
+    /* -----------------------------------------------------
+       ACCUEIL
+    ----------------------------------------------------- */
+
+    .page-accueil {
+
+        padding-left: 25px;
+
+        padding-right: 25px;
+
+    }
+
+
+    .page-accueil h1 {
+
+        font-size: clamp(55px, 18vw, 80px);
+
+        line-height: 0.9;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .petit-titre {
+
+        font-size: 11px;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 15px;
+
+    }
+
+
+    .description {
+
+        font-size: 16px;
+
+        line-height: 1.6;
+
+        margin-bottom: 30px;
+
+    }
+
+
+    /* -----------------------------------------------------
+       BOUTONS
+    ----------------------------------------------------- */
+
+    .bouton {
+
+        min-height: 52px;
+
+        padding: 15px 22px;
+
+        font-size: 14px;
+
+        max-width: 100%;
+
+    }
+
+
+    /* -----------------------------------------------------
+       HISTOIRE
+    ----------------------------------------------------- */
+
+    .contenu-large {
+
+        text-align: left;
+
+    }
+
+
+    .page-histoire h2 {
+
+        font-size: 42px;
+
+        line-height: 1.05;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .texte-histoire p {
+
+        font-size: 16px;
+
+        line-height: 1.65;
+
+        margin-bottom: 17px;
+
+    }
+
+
+    .texte-histoire + .bouton {
+
+        margin-top: 10px;
+
+    }
+
+
+    /* -----------------------------------------------------
+       SOUVENIRS
+    ----------------------------------------------------- */
+
+    .souvenir,
+    .souvenir.inverse {
+
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 25px;
+
+    }
+
+
+    .souvenir.inverse .photo-container {
+
+        order: 0;
+
+    }
+
+
+    .photo-container {
+
+        width: 100%;
+
+        height: 38vh;
+
+        min-height: 230px;
+
+        max-height: 380px;
+
+        border-radius: 22px;
+
+        transform: none;
+
+    }
+
+
+    .photo-container:hover {
+
+        transform: none;
+
+    }
+
+
+    .souvenir-texte {
+
+        width: 100%;
+
+        text-align: center;
+
+    }
+
+
+    .souvenir-texte h2 {
+
+        font-size: 38px;
+
+        line-height: 1.05;
+
+        margin-bottom: 15px;
+
+    }
+
+
+    .souvenir-texte .date {
+
+        font-size: 14px;
+
+        margin-bottom: 12px;
+
+    }
+
+
+    .souvenir-texte > p:not(.date) {
+
+        font-size: 15px;
+
+        line-height: 1.6;
+
+        margin-bottom: 20px;
+
+    }
+
+
+    /* -----------------------------------------------------
+       GALERIE
+    ----------------------------------------------------- */
+
+    .galerie-contenu h2 {
+
+        font-size: 42px;
+
+        line-height: 1.05;
+
+    }
+
+
+    .galerie-contenu > p {
+
+        font-size: 16px;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .mini-galerie {
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 10px;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .mini-photo {
+
+        width: 100%;
+
+        height: 190px;
+
+        border-radius: 15px;
+
+    }
+
+
+    /* -----------------------------------------------------
+       MESSAGE
+    ----------------------------------------------------- */
+
+    .page-message {
+
+        padding-left: 25px;
+
+        padding-right: 25px;
+
+    }
+
+
+    .page-message h2 {
+
+        font-size: 43px;
+
+        line-height: 1.05;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .message p {
+
+        font-size: 16px;
+
+        line-height: 1.65;
+
+        margin-bottom: 15px;
+
+    }
+
+
+    /* -----------------------------------------------------
+       DERNIÈRE PAGE
+    ----------------------------------------------------- */
+
+    .contenu-fin h2 {
+
+        font-size: 52px;
+
+        line-height: 0.98;
+
+    }
+
+
+    .grand-coeur {
+
+        font-size: 65px;
+
+        margin: 20px 0;
+
+    }
+
+
+    .fin-texte {
+
+        font-size: 25px;
+
+    }
+
+
+    /* -----------------------------------------------------
+       COMPTEUR
+    ----------------------------------------------------- */
+
+    .progression {
+
+        top: 15px;
+
+        right: 15px;
+
+        font-size: 12px;
+
+        padding: 7px 12px;
+
+    }
+
+
+    /* -----------------------------------------------------
+       BOUTON RETOUR
+    ----------------------------------------------------- */
+
+    .bouton-retour {
+
+        width: 48px;
+
+        height: 48px;
+
+        bottom: 20px;
+
+        left: 20px;
+
+        font-size: 19px;
+
+    }
+
+
+    /* -----------------------------------------------------
+       DÉCORATIONS
+    ----------------------------------------------------- */
+
+    .coeur-1,
+    .coeur-2,
+    .coeur-3,
+    .etoile-1,
+    .etoile-2 {
+
+        display: none;
+
+    }
+
+
+    .cercle-jaune {
+
+        width: 180px;
+
+        height: 180px;
+
+        right: -80px;
+
+        top: -80px;
+
+    }
+
+}
+
+
+/* =========================================================
+   📱 TRÈS PETITS TÉLÉPHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+
+    .page {
+
+        padding-left: 20px;
+
+        padding-right: 20px;
+
+    }
+
+
+    /* MOT DE PASSE */
+
+    .verrouillage {
+
+        padding: 20px;
+
+    }
+
+
+    .verrouillage h1 {
+
+        font-size: 48px;
+
+    }
+
+
+    .petit-coeur {
+
+        font-size: 48px;
+
+    }
+
+
+    .texte-verrouillage {
+
+        font-size: 15px;
+
+    }
+
+
+    .champ-mot-de-passe input {
+
+        font-size: 14px;
+
+        padding-left: 12px;
+
+        padding-right: 8px;
+
+    }
+
+
+    .champ-mot-de-passe button {
+
+        padding: 0 14px;
+
+        font-size: 13px;
+
+    }
+
+
+    /* ACCUEIL */
+
+    .page-accueil h1 {
+
+        font-size: 55px;
+
+    }
+
+
+    .description {
+
+        font-size: 15px;
+
+    }
+
+
+    /* HISTOIRE */
+
+    .page-histoire h2,
+    .galerie-contenu h2 {
+
+        font-size: 36px;
+
+    }
+
+
+    /* SOUVENIRS */
+
+    .souvenir-texte h2 {
+
+        font-size: 34px;
+
+    }
+
+
+    .photo-container {
+
+        height: 32vh;
+
+        min-height: 210px;
+
+    }
+
+
+    /* GALERIE */
+
+    .mini-photo {
+
+        height: 160px;
+
+    }
+
+
+    /* MESSAGE */
+
+    .page-message h2 {
+
+        font-size: 37px;
+
+    }
+
+
+    /* FIN */
+
+    .contenu-fin h2 {
+
+        font-size: 45px;
+
+    }
+
+
+    /* BOUTONS */
+
+    .bouton {
+
+        padding: 14px 18px;
+
+        font-size: 13px;
+
+    }
+
+}
