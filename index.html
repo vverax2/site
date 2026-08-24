@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Notre histoire 😉​</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         ÉCRAN MOT DE PASSE
+    ====================================================== -->
+
+    <section id="verrouillage" class="verrouillage">
+
+        <div class="verrouillage-decor coeur-verrouillage">
+            ♡
+        </div>
+
+        <div class="verrouillage-decor etoile-verrouillage">
+            ✦
+        </div>
+
+
+        <div class="verrouillage-contenu">
+
+            <div class="petit-coeur">
+                👌​
+            </div>
+
+            <p class="petit-titre">
+                Tiens kdo pupuce
+            </p>
+
+            <h1>
+                Nous en bref
+            </h1>
+
+            <p class="texte-verrouillage">
+                Entre le mot de passe pour voir
+                ce que j'ai cook
+            </p>
+
+
+            <div class="champ-mot-de-passe">
+
+                <input
+                    type="password"
+                    id="mot-de-passe"
+                    placeholder="Mot de passe"
+                    autocomplete="off"
+                >
+
+                <button
+                    type="button"
+                    onclick="verifierMotDePasse()"
+                >
+                    Ouvrir
+                </button>
+
+            </div>
+
+
+            <p
+                id="erreur-mot-de-passe"
+                class="erreur-mot-de-passe"
+            >
+                Epepep nan c'est pas ça
+            </p>
+
+
+            <p class="indice">
+                💡 Ptit indice : moi c'est -logue et toi ?
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         INDICATEUR DE PROGRESSION
+    ====================================================== -->
+
+    <div
+        class="progression"
+        id="progression"
+    >
+
+        <span id="numero-page">1</span>
+
+        <span>/</span>
+
+        <span>7</span>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         PAGE 1 — ACCUEIL
+    ====================================================== -->
+
+    <section class="page active page-accueil">
+
+        <div class="decor coeur-1">
+            ♡
+        </div>
+
+        <div class="decor coeur-2">
+            ♡
+        </div>
+
+        <div class="decor etoile-1">
+            ✦
+        </div>
+
+
+        <div class="contenu">
+
+            <p class="petit-titre">
+                1 AN DE NOUS
+            </p>
+
+            <h1>
+                Notre<br>
+                histoire
+            </h1>
+
+            <p class="description">
+                blablablablabla
+            </p>
+
+            <button
+                class="bouton bouton-jaune"
+                onclick="suivant()"
+            >
+                COMMENCER 
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PAGE 2 — NOUS 2 
+    ====================================================== -->
+
+    <section class="page page-histoire">
+
+        <div class="decor cercle-jaune"></div>
+
+
+        <div class="contenu contenu-large">
+
+            <span class="numero-section">
+                01 — NOTRE HISTOIRE
+            </span>
+
+            <h2>
+                Au départ...
+            </h2>
+
+
+            <div class="texte-histoire">
+
+                <p>
+                    Il y a maintenant un an, blablabla
+                </p>
+
+                <p>
+                    Depuis ce jour blablabla
+                </p>
+
+                <p>
+                    Elle a été remplie de moments que je
+                    n'oublierai blablabla
+                </p>
+
+                <p>
+                    Alors j'ai voulu créer blablabla
+                </p>
+
+            </div>
+
+
+            <button
+                class="bouton bouton-violet"
+                onclick="suivant()"
+            >
+
+                Continuer
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PAGE 3 — SOUVENIR 1
+    ====================================================== -->
+
+    <section class="page page-souvenir">
+
+        <div class="souvenir">
+
+
+            <div class="photo-container">
+
+                <img
+                    src="images/photo1.jpg"
+                    alt="Notre premier souvenir"
+                >
+
+            </div>
+
+
+            <div class="souvenir-texte">
+
+                <span class="numero-section">
+                    02 — SOUVENIR
+                </span>
+
+                <h2>
+                    Notre premier souvenir
+                </h2>
+
+                <p class="date">
+                    📅 Une date importante
+                </p>
+
+                <p>
+                    blablabla
+                </p>
+
+
+                <button
+                    class="bouton bouton-jaune"
+                    onclick="suivant()"
+                >
+
+                    Le souvenir suivant
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PAGE 4 — SOUVENIR 2
+    ====================================================== -->
+
+    <section
+        class="page page-souvenir page-souvenir-bleu"
+    >
+
+        <div class="souvenir inverse">
+
+
+            <div class="photo-container">
+
+                <img
+                    src="images/photo2.jpg"
+                    alt="Un souvenir ensemble"
+                >
+
+            </div>
+
+
+            <div class="souvenir-texte">
+
+                <span class="numero-section">
+                    03 — SOUVENIR
+                </span>
+
+                <h2>
+                    Un moment blabla
+                </h2>
+
+                <p class="date">
+                    📅 Une autre date importante
+                </p>
+
+                <p>
+                    blabla
+                </p>
+
+
+                <button
+                    class="bouton bouton-violet"
+                    onclick="suivant()"
+                >
+
+                    Continuer
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PAGE 5 — GALERIE
+    ====================================================== -->
+
+    <section class="page page-galerie">
+
+        <div class="contenu galerie-contenu">
+
+            <span class="numero-section">
+                04 — NOS SOUVENIRS
+            </span>
+
+            <h2>
+                Et cblabla
+            </h2>
+
+            <p>
+                Une année, blabla
+            </p>
+
+
+            <div class="mini-galerie">
+
+                <div class="mini-photo">
+
+                    <img
+                        src="images/photo3.jpg"
+                        alt="Souvenir"
+                    >
+
+                </div>
+
+
+                <div class="mini-photo">
+
+                    <img
+                        src="images/photo4.jpg"
+                        alt="Souvenir"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="bouton bouton-jaune"
+                onclick="suivant()"
+            >
+
+                J'ai encore quelque chose à te dire
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PAGE 6 — MESSAGE
+    ====================================================== -->
+
+    <section class="page page-message">
+
+        <div class="decor etoile-2">
+            ✦
+        </div>
+
+        <div class="decor coeur-3">
+            ♡
+        </div>
+
+
+        <div class="contenu contenu-message">
+
+            <span class="numero-section">
+                05 — POUR TOI
+            </span>
+
+            <h2>
+                Merci pour cette première année.
+            </h2>
+
+
+            <div class="message">
+
+                <p>
+                    Merci pour tous les moments passés
+                    ensemble.
+                </p>
+
+                <p>
+                    Merci pour les rires, les discussions,
+                    les câlins, les petites attentions et
+                    tous ces moments blabla
+                </p>
+
+                <p>
+                    Merci simplement d'être toi.
+                </p>
+
+            </div>
+
+
+            <button
+                class="bouton bouton-jaune"
+                onclick="suivant()"
+            >
+
+                Une dernière chose...
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PAGE 7 — FIN
+    ====================================================== -->
+
+    <section class="page page-fin">
+
+        <div class="confettis">
+            ✦
+        </div>
+
+
+        <div class="contenu contenu-fin">
+
+            <p class="petit-titre">
+                1 AN DE NOUS
+            </p>
+
+            <h2>
+                Et si blabla<br>
+                blabla
+            </h2>
+
+
+            <div class="grand-coeur">
+                👌​
+            </div>
+
+
+            <p class="fin-texte">
+                OUAIS
+            </p>
+
+            <p class="signature">
+                — Logue
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         BOUTON RETOUR
+    ====================================================== -->
+
+    <button
+        id="bouton-retour"
+        class="bouton-retour"
+        onclick="precedent()"
+        aria-label="Page précédente"
+    >
+        ←
+    </button>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
